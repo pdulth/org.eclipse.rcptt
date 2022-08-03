@@ -460,11 +460,7 @@ public class TargetPlatformHelper implements ITargetPlatformHelper {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private IStatus validateBundles(IProgressMonitor monitor) {
 		LaunchValidationOperation validation = new LaunchValidationOperation(
-				null) {
-			@Override
-			protected Set<IPluginModelBase> getModels() throws CoreException {
-				return new HashSet(Arrays.asList(getTargetModels()));
-			}
+				null, new HashSet(Arrays.asList(getTargetModels()))) {
 
 			@Override
 			protected IExecutionEnvironment[] getMatchingEnvironments()
